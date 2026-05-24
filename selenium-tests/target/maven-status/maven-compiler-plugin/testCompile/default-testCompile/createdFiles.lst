@@ -1,0 +1,3 @@
+com/zenpay/selenium/BaseWebTest.class
+com/zenpay/selenium/AuthJourneyTest.class
+com/zenpay/selenium/SmokeSuiteTest.class

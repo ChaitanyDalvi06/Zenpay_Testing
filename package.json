@@ -1,0 +1,15 @@
+{
+  "name": "zenpay-combined",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "start": "concurrently \"cd backend && npm install && npm run dev\" \"cd frontend && npm install && npm run dev\"",
+    "install-all": "cd backend && npm install && cd ../frontend && npm install",
+    "test:selenium": "cd selenium-tests && mvn test",
+    "test:cypress": "cd frontend && npx cypress run --browser chrome --headless",
+    "test:jmeter": "cd jmeter-tests && jmeter -n -t auth-login-signup.jmx -l results.jtl -Jprotocol=http -Jhost=127.0.0.1 -Jport=8000"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.0"
+  }
+}
