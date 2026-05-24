@@ -1,8 +1,12 @@
 describe('Zenpay auth journey', () => {
-  const apiUrl = Cypress.env('apiUrl') || 'http://127.0.0.1:8000';
+  const apiUrl = Cypress.env('apiUrl') || 'http://localhost:8000';
 
   function uniqueEmail(prefix) {
     return `${prefix}+${Date.now()}@example.com`;
+  }
+
+  function uniqueName(prefix) {
+    return `${prefix}-${Date.now()}`;
   }
 
   it('signup and login from UI', () => {
@@ -12,7 +16,7 @@ describe('Zenpay auth journey', () => {
     cy.visit('/signup');
 
     cy.intercept('POST', `${apiUrl}/api/auth/signup`).as('signupApi');
-    cy.get('input[name="name"]').type('Cypress User');
+    cy.get('input[name="name"]').type(uniqueName('Cypress User'));
     cy.get('input[name="email"]').type(email);
     cy.get('input[name="password"]').type(password);
     cy.contains('button', 'Signup').click();

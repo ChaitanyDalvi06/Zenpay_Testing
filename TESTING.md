@@ -17,8 +17,8 @@ npm run start
 
 Expected:
 
-- Frontend: http://127.0.0.1:5173
-- Backend: http://127.0.0.1:8000
+- Frontend: http://localhost:5173
+- Backend: http://localhost:8000
 
 ## 2) Selenium tests
 
@@ -30,7 +30,13 @@ mvn test
 Headless run:
 
 ```bash
-BASE_URL=http://127.0.0.1:5173 SELENIUM_HEADLESS=true mvn test
+BASE_URL=http://localhost:5173 SELENIUM_HEADLESS=true mvn test
+```
+
+UI run (single test only):
+
+```bash
+mvn -Dtest=AuthJourneyTest test
 ```
 
 ## 3) Cypress tests
@@ -45,7 +51,7 @@ npm install
 Run Cypress headless:
 
 ```bash
-CYPRESS_BASE_URL=http://127.0.0.1:5173 npx cypress run --browser chrome --headless
+CYPRESS_BASE_URL=http://localhost:5173 npx cypress run --browser chrome --headless
 ```
 
 Open Cypress UI:
@@ -58,7 +64,7 @@ npm run cy:open
 
 ```bash
 cd jmeter-tests
-jmeter -n -t auth-login-signup.jmx -l results.jtl -Jprotocol=http -Jhost=127.0.0.1 -Jport=8000
+jmeter -n -t auth-login-signup.jmx -l results.jtl -Jprotocol=http -Jhost=localhost -Jport=8000
 ```
 
 Generate report:
@@ -85,6 +91,31 @@ Pipeline stages:
 The pipeline is scheduled weekly with:
 
 - `H H * * 1`
+
+## UI testing (step-by-step)
+
+1) Start the app (keep this terminal running):
+
+```bash
+cd /Users/chaitanyadalvi/Desktop/Testing/Zenpay-main/Zenpay
+npm run start
+```
+
+2) Selenium UI flow (browser opens and runs signup + login once):
+
+```bash
+cd /Users/chaitanyadalvi/Desktop/Testing/Zenpay-main/Zenpay/selenium-tests
+mvn -Dtest=AuthJourneyTest test
+```
+
+3) Cypress UI flow (open Cypress runner):
+
+```bash
+cd /Users/chaitanyadalvi/Desktop/Testing/Zenpay-main/Zenpay/frontend
+npm run cy:open
+```
+
+In the Cypress window, click `auth.cy.js` to run the signup + login test.
 
 ## Quick command shortcuts
 

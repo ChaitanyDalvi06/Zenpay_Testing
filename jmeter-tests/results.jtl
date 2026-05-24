@@ -1,0 +1,4 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1779642158562,270,Generate Dynamic Auth Data,200,OK,Auth API Thread Group 1-1,text,true,,0,0,1,1,null,0,0,0
+1779642158872,246,Signup API,201,Created,Auth API Thread Group 1-1,text,true,,489,267,1,1,http://127.0.0.1:8000/api/auth/signup,243,0,10
+1779642159120,61,Login API,200,OK,Auth API Thread Group 1-1,text,true,,576,238,1,1,http://127.0.0.1:8000/api/auth/login,61,0,0
