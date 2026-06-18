@@ -11,6 +11,7 @@ pipeline {
     }
 
     environment {
+        PATH = "/opt/homebrew/bin:/usr/local/bin:${env.PATH}"
         BASE_URL = 'http://127.0.0.1:5173'
         SELENIUM_HEADLESS = 'true'
         CYPRESS_BASE_URL = 'http://127.0.0.1:5173'
