@@ -72,7 +72,7 @@
 
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { BarChart, Brain, ShoppingCart, Settings, User, LogOut, ChevronDown, CreditCard } from 'lucide-react';
+import { BarChart, Brain, ShoppingCart, Settings, User, LogOut, ChevronDown, CreditCard, Award } from 'lucide-react';
 import './Navbar.css';
 
 function Navbar() {
@@ -119,6 +119,10 @@ function Navbar() {
             <Link to="/dashboard" className="navbar-link" onClick={() => handleNavigation('/dashboard')}>
               <BarChart className="icon" />
               Dashboard
+            </Link>
+            <Link to="/rewards" className="navbar-link" onClick={() => handleNavigation('/rewards')}>
+              <Award className="icon" />
+              Rewards
             </Link>
             <div className="dropdown">
               <button

@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import { Search, Filter } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Search } from 'lucide-react';
 import { formatCurrency, formatDate } from '../utils/formatters';
 
-// Mock data
+// Mock data fallback
 const mockTransactions = [
   {
     id: '1',
@@ -20,14 +20,57 @@ const mockTransactions = [
     date: '2024-03-14',
     status: 'completed',
   },
-  // Add more mock transactions as needed
 ];
+
+const getCategoryByMerchant = (merchant) => {
+  const m = String(merchant || '').toLowerCase();
+  if (m.includes('swiggy') || m.includes('zomato') || m.includes('restaurant') || m.includes('food') || m.includes('starbucks')) {
+    return 'Food';
+  }
+  if (m.includes('amazon') || m.includes('ajio') || m.includes('flipkart') || m.includes('shopping') || m.includes('myntra')) {
+    return 'Shopping';
+  }
+  if (m.includes('uber') || m.includes('ola') || m.includes('transport') || m.includes('metro') || m.includes('car')) {
+    return 'Transportation';
+  }
+  if (m.includes('spotify') || m.includes('netflix') || m.includes('movie') || m.includes('show') || m.includes('entertainment') || m.includes('bookmyshow')) {
+    return 'Entertainment';
+  }
+  return 'Shopping';
+};
 
 function Transactions() {
   const [searchTerm, setSearchTerm] = useState('');
   const [filter, setFilter] = useState('all');
+  const [payments, setPayments] = useState([]);
 
-  const filteredTransactions = mockTransactions.filter(transaction => {
+  useEffect(() => {
+    const fetchPayments = async () => {
+      try {
+        const res = await fetch('http://localhost:8000/api/payment/payments');
+        if (res.ok) {
+          const data = await res.json();
+          setPayments(data.payments || []);
+        }
+      } catch (err) {
+        console.error('Error fetching payments:', err);
+      }
+    };
+    fetchPayments();
+  }, []);
+
+  const transactions = payments.map((p, idx) => ({
+    id: p._id || idx.toString(),
+    amount: p.amount,
+    merchant: p.payeeName,
+    category: getCategoryByMerchant(p.payeeName),
+    date: p.createdAt || new Date().toISOString(),
+    status: p.status === 'successful' ? 'completed' : 'failed'
+  }));
+
+  const displayTransactions = transactions.length > 0 ? transactions : mockTransactions;
+
+  const filteredTransactions = displayTransactions.filter(transaction => {
     const matchesSearch = transaction.merchant.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesFilter = filter === 'all' || transaction.status === filter;
     return matchesSearch && matchesFilter;

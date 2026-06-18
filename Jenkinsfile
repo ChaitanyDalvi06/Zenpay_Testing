@@ -94,6 +94,7 @@ pipeline {
 
     post {
         always {
+            testng testResults: 'selenium-tests/target/surefire-reports/testng-results.xml'
             junit allowEmptyResults: true, testResults: 'selenium-tests/target/surefire-reports/*.xml'
             archiveArtifacts artifacts: 'jmeter-tests/results.jtl, backend.log, frontend.log', allowEmptyArchive: true
             archiveArtifacts artifacts: 'frontend/cypress/screenshots/**', allowEmptyArchive: true

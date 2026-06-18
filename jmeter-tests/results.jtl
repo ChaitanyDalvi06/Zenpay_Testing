@@ -1,4 +1,71 @@
 timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
-1779642158562,270,Generate Dynamic Auth Data,200,OK,Auth API Thread Group 1-1,text,true,,0,0,1,1,null,0,0,0
-1779642158872,246,Signup API,201,Created,Auth API Thread Group 1-1,text,true,,489,267,1,1,http://127.0.0.1:8000/api/auth/signup,243,0,10
-1779642159120,61,Login API,200,OK,Auth API Thread Group 1-1,text,true,,576,238,1,1,http://127.0.0.1:8000/api/auth/login,61,0,0
+1781783989021,260,Generate Dynamic Auth Data,200,OK,Auth API Thread Group 1-1,text,true,,0,0,1,1,null,0,0,0
+1781783989422,8,Generate Dynamic Auth Data,200,OK,Auth API Thread Group 1-2,text,true,,0,0,2,2,null,0,0,0
+1781783989430,111,Signup API,201,Created,Auth API Thread Group 1-2,text,true,,489,267,2,2,http://127.0.0.1:8000/api/auth/signup,111,0,1
+1781783989319,222,Signup API,201,Created,Auth API Thread Group 1-1,text,true,,489,267,2,2,http://127.0.0.1:8000/api/auth/signup,222,0,9
+1781783989554,64,Login API,200,OK,Auth API Thread Group 1-2,text,true,,576,238,2,2,http://127.0.0.1:8000/api/auth/login,64,0,0
+1781783989554,64,Login API,200,OK,Auth API Thread Group 1-1,text,true,,576,238,2,2,http://127.0.0.1:8000/api/auth/login,64,0,0
+1781783989619,20,Profile API,201,Created,Auth API Thread Group 1-2,text,true,,582,592,2,2,http://127.0.0.1:8000/api/profile,20,0,0
+1781783989619,21,Profile API,201,Created,Auth API Thread Group 1-1,text,true,,582,592,2,2,http://127.0.0.1:8000/api/profile,20,0,0
+1781783989640,1,AI Advisor API,200,OK,Auth API Thread Group 1-2,text,true,,362,421,2,2,http://127.0.0.1:8000/api/ai/chat,0,0,0
+1781783989640,1,AI Advisor API,200,OK,Auth API Thread Group 1-1,text,true,,362,421,2,2,http://127.0.0.1:8000/api/ai/chat,1,0,0
+1781783989641,2,Payment API,201,Created,Auth API Thread Group 1-2,text,true,,513,478,2,2,http://127.0.0.1:8000/api/payment/payment,2,0,0
+1781783989641,2,Payment API,201,Created,Auth API Thread Group 1-1,text,true,,513,478,2,2,http://127.0.0.1:8000/api/payment/payment,2,0,0
+1781783989643,1,Rewards Spin API,200,OK,Auth API Thread Group 1-2,text,true,,319,399,2,2,http://127.0.0.1:8000/api/rewards/spin,1,0,0
+1781783989643,1,Rewards Spin API,200,OK,Auth API Thread Group 1-1,text,true,,323,399,2,2,http://127.0.0.1:8000/api/rewards/spin,1,0,0
+1781783989644,8,Generate Dynamic Auth Data,200,OK,Auth API Thread Group 1-2,text,true,,0,0,2,2,null,0,0,0
+1781783989644,8,Generate Dynamic Auth Data,200,OK,Auth API Thread Group 1-1,text,true,,0,0,2,2,null,0,0,0
+1781783989652,56,Signup API,201,Created,Auth API Thread Group 1-1,text,true,,489,267,2,2,http://127.0.0.1:8000/api/auth/signup,56,0,1
+1781783989652,56,Signup API,201,Created,Auth API Thread Group 1-2,text,true,,489,267,2,2,http://127.0.0.1:8000/api/auth/signup,56,0,1
+1781783989709,54,Login API,200,OK,Auth API Thread Group 1-1,text,true,,576,238,2,2,http://127.0.0.1:8000/api/auth/login,54,0,0
+1781783989709,54,Login API,200,OK,Auth API Thread Group 1-2,text,true,,576,238,2,2,http://127.0.0.1:8000/api/auth/login,54,0,0
+1781783989763,2,Profile API,201,Created,Auth API Thread Group 1-1,text,true,,582,592,2,2,http://127.0.0.1:8000/api/profile,2,0,1
+1781783989763,2,Profile API,201,Created,Auth API Thread Group 1-2,text,true,,582,592,2,2,http://127.0.0.1:8000/api/profile,2,0,1
+1781783989765,1,AI Advisor API,200,OK,Auth API Thread Group 1-1,text,true,,362,421,2,2,http://127.0.0.1:8000/api/ai/chat,1,0,0
+1781783989765,1,AI Advisor API,200,OK,Auth API Thread Group 1-2,text,true,,362,421,2,2,http://127.0.0.1:8000/api/ai/chat,1,0,1
+1781783989766,2,Payment API,201,Created,Auth API Thread Group 1-1,text,true,,513,478,2,2,http://127.0.0.1:8000/api/payment/payment,2,0,0
+1781783989766,3,Payment API,201,Created,Auth API Thread Group 1-2,text,true,,513,478,2,2,http://127.0.0.1:8000/api/payment/payment,3,0,0
+1781783989769,1,Rewards Spin API,200,OK,Auth API Thread Group 1-1,text,true,,323,399,2,2,http://127.0.0.1:8000/api/rewards/spin,1,0,0
+1781783989769,1,Rewards Spin API,200,OK,Auth API Thread Group 1-2,text,true,,319,399,2,2,http://127.0.0.1:8000/api/rewards/spin,1,0,0
+1781783989821,7,Generate Dynamic Auth Data,200,OK,Auth API Thread Group 1-3,text,true,,0,0,1,1,null,0,0,0
+1781783989828,61,Signup API,201,Created,Auth API Thread Group 1-3,text,true,,489,267,1,1,http://127.0.0.1:8000/api/auth/signup,61,0,0
+1781783989889,52,Login API,200,OK,Auth API Thread Group 1-3,text,true,,576,238,1,1,http://127.0.0.1:8000/api/auth/login,52,0,0
+1781783989942,2,Profile API,201,Created,Auth API Thread Group 1-3,text,true,,582,592,1,1,http://127.0.0.1:8000/api/profile,2,0,0
+1781783989944,1,AI Advisor API,200,OK,Auth API Thread Group 1-3,text,true,,362,421,1,1,http://127.0.0.1:8000/api/ai/chat,1,0,1
+1781783989945,1,Payment API,201,Created,Auth API Thread Group 1-3,text,true,,513,478,1,1,http://127.0.0.1:8000/api/payment/payment,1,0,0
+1781783989947,1,Rewards Spin API,200,OK,Auth API Thread Group 1-3,text,true,,321,399,1,1,http://127.0.0.1:8000/api/rewards/spin,1,0,0
+1781783989948,5,Generate Dynamic Auth Data,200,OK,Auth API Thread Group 1-3,text,true,,0,0,1,1,null,0,0,0
+1781783989953,53,Signup API,201,Created,Auth API Thread Group 1-3,text,true,,489,267,1,1,http://127.0.0.1:8000/api/auth/signup,53,0,0
+1781783990006,52,Login API,200,OK,Auth API Thread Group 1-3,text,true,,576,238,1,1,http://127.0.0.1:8000/api/auth/login,52,0,0
+1781783990058,2,Profile API,201,Created,Auth API Thread Group 1-3,text,true,,582,592,1,1,http://127.0.0.1:8000/api/profile,2,0,0
+1781783990060,0,AI Advisor API,200,OK,Auth API Thread Group 1-3,text,true,,362,421,1,1,http://127.0.0.1:8000/api/ai/chat,0,0,0
+1781783990061,1,Payment API,201,Created,Auth API Thread Group 1-3,text,true,,513,478,1,1,http://127.0.0.1:8000/api/payment/payment,1,0,0
+1781783990062,0,Rewards Spin API,200,OK,Auth API Thread Group 1-3,text,true,,323,399,1,1,http://127.0.0.1:8000/api/rewards/spin,0,0,0
+1781783990226,6,Generate Dynamic Auth Data,200,OK,Auth API Thread Group 1-4,text,true,,0,0,1,1,null,0,0,0
+1781783990233,102,Signup API,201,Created,Auth API Thread Group 1-4,text,true,,489,267,1,1,http://127.0.0.1:8000/api/auth/signup,102,0,0
+1781783990336,57,Login API,200,OK,Auth API Thread Group 1-4,text,true,,576,238,1,1,http://127.0.0.1:8000/api/auth/login,57,0,0
+1781783990393,48,Profile API,201,Created,Auth API Thread Group 1-4,text,true,,582,592,1,1,http://127.0.0.1:8000/api/profile,48,0,1
+1781783990442,1,AI Advisor API,200,OK,Auth API Thread Group 1-4,text,true,,362,421,1,1,http://127.0.0.1:8000/api/ai/chat,1,0,0
+1781783990443,1,Payment API,201,Created,Auth API Thread Group 1-4,text,true,,513,478,1,1,http://127.0.0.1:8000/api/payment/payment,1,0,0
+1781783990445,0,Rewards Spin API,200,OK,Auth API Thread Group 1-4,text,true,,318,399,1,1,http://127.0.0.1:8000/api/rewards/spin,0,0,0
+1781783990445,6,Generate Dynamic Auth Data,200,OK,Auth API Thread Group 1-4,text,true,,0,0,1,1,null,0,0,0
+1781783990451,101,Signup API,201,Created,Auth API Thread Group 1-4,text,true,,489,267,1,1,http://127.0.0.1:8000/api/auth/signup,101,0,1
+1781783990553,58,Login API,200,OK,Auth API Thread Group 1-4,text,true,,576,238,1,1,http://127.0.0.1:8000/api/auth/login,58,0,0
+1781783990611,2,Profile API,201,Created,Auth API Thread Group 1-4,text,true,,582,592,1,1,http://127.0.0.1:8000/api/profile,2,0,0
+1781783990613,1,AI Advisor API,200,OK,Auth API Thread Group 1-4,text,true,,362,421,1,1,http://127.0.0.1:8000/api/ai/chat,1,0,0
+1781783990614,1,Payment API,201,Created,Auth API Thread Group 1-4,text,true,,513,478,1,1,http://127.0.0.1:8000/api/payment/payment,1,0,0
+1781783990615,1,Rewards Spin API,200,OK,Auth API Thread Group 1-4,text,true,,323,399,1,1,http://127.0.0.1:8000/api/rewards/spin,1,0,1
+1781783990617,5,Generate Dynamic Auth Data,200,OK,Auth API Thread Group 1-5,text,true,,0,0,1,1,null,0,0,0
+1781783990622,79,Signup API,201,Created,Auth API Thread Group 1-5,text,true,,489,267,1,1,http://127.0.0.1:8000/api/auth/signup,79,0,1
+1781783990702,56,Login API,200,OK,Auth API Thread Group 1-5,text,true,,576,238,1,1,http://127.0.0.1:8000/api/auth/login,56,0,0
+1781783990759,2,Profile API,201,Created,Auth API Thread Group 1-5,text,true,,582,592,1,1,http://127.0.0.1:8000/api/profile,2,0,0
+1781783990761,1,AI Advisor API,200,OK,Auth API Thread Group 1-5,text,true,,362,421,1,1,http://127.0.0.1:8000/api/ai/chat,1,0,0
+1781783990762,1,Payment API,201,Created,Auth API Thread Group 1-5,text,true,,513,478,1,1,http://127.0.0.1:8000/api/payment/payment,1,0,0
+1781783990763,1,Rewards Spin API,200,OK,Auth API Thread Group 1-5,text,true,,323,399,1,1,http://127.0.0.1:8000/api/rewards/spin,1,0,1
+1781783990764,6,Generate Dynamic Auth Data,200,OK,Auth API Thread Group 1-5,text,true,,0,0,1,1,null,0,0,0
+1781783990770,60,Signup API,201,Created,Auth API Thread Group 1-5,text,true,,489,267,1,1,http://127.0.0.1:8000/api/auth/signup,60,0,0
+1781783990830,58,Login API,200,OK,Auth API Thread Group 1-5,text,true,,576,238,1,1,http://127.0.0.1:8000/api/auth/login,58,0,1
+1781783990888,45,Profile API,201,Created,Auth API Thread Group 1-5,text,true,,582,592,1,1,http://127.0.0.1:8000/api/profile,45,0,0
+1781783990933,1,AI Advisor API,200,OK,Auth API Thread Group 1-5,text,true,,362,421,1,1,http://127.0.0.1:8000/api/ai/chat,1,0,1
+1781783990934,2,Payment API,201,Created,Auth API Thread Group 1-5,text,true,,513,478,1,1,http://127.0.0.1:8000/api/payment/payment,2,0,0
+1781783990936,0,Rewards Spin API,200,OK,Auth API Thread Group 1-5,text,true,,319,399,1,1,http://127.0.0.1:8000/api/rewards/spin,0,0,0

@@ -7,10 +7,11 @@ import java.util.List;
 import java.util.Locale;
 import java.util.UUID;
 
-import org.junit.jupiter.api.AfterEach;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import org.junit.jupiter.api.BeforeEach;
+import org.testng.annotations.AfterClass;
+import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -28,7 +29,7 @@ abstract class BaseWebTest {
 
     protected WebDriver driver;
 
-    @BeforeEach
+    @BeforeClass
     void setUpDriver() {
         WebDriverManager.chromedriver().setup();
 
@@ -73,7 +74,7 @@ abstract class BaseWebTest {
         }
     }
 
-    @AfterEach
+    @AfterClass
     void tearDownDriver() {
         if (driver != null) {
             driver.quit();
@@ -86,6 +87,13 @@ abstract class BaseWebTest {
 
     protected void open(String path) {
         driver.get(baseUrl() + path);
+    }
+
+    protected void clearInput(WebElement element) {
+        ((JavascriptExecutor) driver).executeScript(
+            "arguments[0].value = ''; arguments[0].dispatchEvent(new Event('input', { bubbles: true }));", 
+            element
+        );
     }
 
     protected void waitForUrlContains(String text) {
@@ -116,7 +124,7 @@ abstract class BaseWebTest {
 
     protected void assertBodyContains(String expectedText) {
         String bodyText = driver.findElement(By.tagName("body")).getText().toLowerCase(Locale.ROOT);
-        assertTrue(bodyText.contains(expectedText.toLowerCase(Locale.ROOT)),
+        Assert.assertTrue(bodyText.contains(expectedText.toLowerCase(Locale.ROOT)),
                 "Expected body to contain: " + expectedText + " but was: " + bodyText);
     }
 

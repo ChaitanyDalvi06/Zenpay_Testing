@@ -1,5 +1,646 @@
-.homepage-container{display:flex;flex-direction:column;align-items:center;padding:24px}
-.form-container{max-width:720px;width:100%;}
-.payment-form{display:flex;flex-direction:column;gap:12px}
-.form-group{display:flex;flex-direction:column}
-.submit-button{padding:8px 12px;background-color:#2563eb;color:white;border:none;border-radius:6px}
+/* ==========================================
+   CHECKOUT PORTAL - PREMIUM STYLING
+   ========================================== */
+
+.checkout-page-wrapper {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2.5rem 1.5rem;
+  font-family: 'Inter', -apple-system, sans-serif;
+  color: #1e293b;
+}
+
+.checkout-main-container {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 2rem;
+  max-width: 1000px;
+  width: 100%;
+  align-items: start;
+}
+
+@media (max-width: 868px) {
+  .checkout-main-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================
+   LEFT PANEL - FORMS
+   ========================================== */
+
+.checkout-panel-left {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 2.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+}
+
+@media (max-width: 560px) {
+  .checkout-panel-left {
+    padding: 1.5rem;
+  }
+}
+
+.checkout-progress-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.step-badge {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #94a3b8;
+  padding: 0.35rem 0.75rem;
+  background-color: #f8fafc;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+}
+
+.step-badge.step-active {
+  background-color: #e0e7ff;
+  color: #4f46e5;
+  border-color: #c7d2fe;
+}
+
+.progress-arrow {
+  color: #cbd5e1;
+}
+
+.step-content-box h2 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 0.5rem 0;
+  letter-spacing: -0.025em;
+}
+
+.panel-desc {
+  font-size: 0.875rem;
+  color: #64748b;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+}
+
+/* Form Controls */
+.checkout-form-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.checkout-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.checkout-input-group label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #475569;
+}
+
+.input-with-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon-left {
+  position: absolute;
+  left: 0.875rem;
+  color: #94a3b8;
+}
+
+.currency-symbol-left {
+  position: absolute;
+  left: 0.875rem;
+  font-weight: 600;
+  color: #64748b;
+}
+
+.checkout-input-group input,
+.checkout-input-group select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  outline: none;
+  background-color: #ffffff;
+  color: #1e293b;
+  transition: all 0.2s ease;
+}
+
+.input-with-icon input {
+  padding-left: 2.25rem;
+}
+
+.checkout-input-group input:focus,
+.checkout-input-group select:focus {
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.12);
+}
+
+.checkout-input-group input::placeholder {
+  color: #94a3b8;
+}
+
+.checkout-action-btn {
+  background-color: #4f46e5;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.875rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.2s ease;
+  margin-top: 1rem;
+}
+
+.checkout-action-btn:hover {
+  background-color: #4338ca;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25);
+  transform: translateY(-1px);
+}
+
+/* ==========================================
+   STEP 2 - PAYMENT SELECTOR
+   ========================================== */
+
+.payment-options-selector {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  margin-bottom: 1.75rem;
+}
+
+@media (max-width: 480px) {
+  .payment-options-selector {
+    grid-template-columns: 1fr;
+  }
+}
+
+.method-tab-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem 1rem;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 600;
+  color: #64748b;
+  text-align: left;
+}
+
+.method-tab-btn svg {
+  color: #94a3b8;
+}
+
+.method-tab-btn:hover {
+  background-color: #f1f5f9;
+  border-color: #cbd5e1;
+}
+
+.method-tab-btn.active-method {
+  background-color: #e0e7ff;
+  border-color: #4f46e5;
+  color: #4f46e5;
+}
+
+.method-tab-btn.active-method svg {
+  color: #4f46e5;
+}
+
+.payment-details-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.details-sub-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.expiry-cvv-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.security-notice-box {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  font-size: 0.75rem;
+  color: #065f46;
+  font-weight: 500;
+}
+
+.form-action-row {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.back-step-btn {
+  background-color: #ffffff;
+  color: #64748b;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 0.875rem 1.5rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.back-step-btn:hover {
+  background-color: #f8fafc;
+  color: #1e293b;
+}
+
+.pay-submit-btn {
+  flex-grow: 1;
+  background-color: #4f46e5;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.875rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.pay-submit-btn:hover {
+  background-color: #4338ca;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25);
+  transform: translateY(-1px);
+}
+
+/* ==========================================
+   STEP 3 - PROCESSING PAGE
+   ========================================== */
+
+.checkout-processing-panel {
+  grid-column: span 2;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 4rem 2rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 600px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.processing-ring-container {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin-bottom: 2rem;
+}
+
+.processing-progress-ring {
+  transform: rotate(-90deg);
+}
+
+.progress-ring-bg {
+  stroke-linecap: round;
+}
+
+.progress-ring-fill {
+  transition: stroke-dashoffset 0.15s ease-out;
+}
+
+.progress-percentage-num {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #4f46e5;
+}
+
+.checkout-processing-panel h3 {
+  font-size: 1.35rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  color: #0f172a;
+}
+
+.loading-status-text {
+  font-size: 0.9rem;
+  color: #64748b;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+.spinning-loader-icon {
+  margin-top: 0.5rem;
+}
+
+/* ==========================================
+   STEP 4 - SUCCESS DASHBOARD
+   ========================================== */
+
+.checkout-success-panel {
+  grid-column: span 2;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 3.5rem 2.5rem;
+  box-shadow: 0 10px 45px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 580px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+@media (max-width: 480px) {
+  .checkout-success-panel {
+    padding: 2.5rem 1.5rem;
+  }
+}
+
+.success-checkmark-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90px;
+  height: 90px;
+  background-color: #ecfdf5;
+  border-radius: 50%;
+  margin-bottom: 1.5rem;
+  border: 2px solid #a7f3d0;
+  box-shadow: 0 0 25px rgba(16, 185, 129, 0.2);
+  animation: pulseSuccess 2s infinite;
+}
+
+.checkmark-icon {
+  animation: scaleCheckmark 0.4s ease-out;
+}
+
+.checkout-success-panel h2 {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #065f46;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.025em;
+}
+
+.success-headline {
+  font-size: 0.9rem;
+  color: #64748b;
+  max-width: 380px;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+}
+
+.transaction-receipt-card {
+  width: 100%;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-bottom: 2rem;
+  text-align: left;
+}
+
+.receipt-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+}
+
+.receipt-row span {
+  color: #64748b;
+  font-weight: 500;
+}
+
+.receipt-row strong {
+  color: #0f172a;
+}
+
+.receipt-ref-num {
+  font-family: monospace;
+  font-size: 0.95rem;
+  color: #4f46e5 !important;
+}
+
+.receipt-amount-success {
+  font-size: 1.1rem;
+  color: #10b981 !important;
+}
+
+.success-badge-pill {
+  background-color: #d1fae5;
+  color: #065f46;
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+}
+
+.return-dashboard-btn {
+  background-color: #4f46e5;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.875rem 2rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.2s ease;
+  width: 100%;
+}
+
+.return-dashboard-btn:hover {
+  background-color: #4338ca;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25);
+}
+
+.return-dashboard-btn svg {
+  transition: transform 0.2s ease;
+}
+
+.return-dashboard-btn:hover svg {
+  transform: translateX(3px);
+}
+
+/* ==========================================
+   RIGHT PANEL - SUMMARY
+   ========================================== */
+
+.order-summary-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+}
+
+.order-summary-card h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 0.25rem 0;
+}
+
+.summary-subtitle {
+  font-size: 0.8rem;
+  color: #94a3b8;
+  margin-bottom: 1.5rem;
+}
+
+.summary-item-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+
+.summary-item-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+}
+
+.summary-item-row span {
+  color: #64748b;
+}
+
+.summary-item-row strong {
+  color: #1e293b;
+  font-weight: 600;
+}
+
+.fee-free {
+  color: #10b981;
+  font-weight: 600;
+}
+
+.summary-total-divider {
+  height: 1px;
+  background-color: #e2e8f0;
+  margin: 1.25rem 0;
+}
+
+.summary-total-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+}
+
+.summary-total-row span {
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.summary-total-row strong {
+  font-size: 1.25rem;
+  color: #4f46e5;
+  font-weight: 800;
+}
+
+.secure-badge-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: #f1f5f9;
+  border-radius: 8px;
+  padding: 0.75rem;
+  font-size: 0.75rem;
+  color: #475569;
+  font-weight: 500;
+}
+
+/* ==========================================
+   ANIMATIONS & KEYFRAMES
+   ========================================== */
+
+.animate-fade-in {
+  animation: fadeIn 0.35s ease-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.3s ease-out;
+}
+
+.animate-scale-up {
+  animation: scaleUp 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleUp {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes pulseSuccess {
+  0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
+  70% { box-shadow: 0 0 0 15px rgba(16, 185, 129, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+@keyframes scaleCheckmark {
+  from { transform: scale(0.6); }
+  to { transform: scale(1); }
+}
