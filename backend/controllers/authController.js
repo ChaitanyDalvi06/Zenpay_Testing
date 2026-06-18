@@ -171,7 +171,7 @@ import User from '../models/User.js';
 import Profile from '../models/UserProfile.js';
 import bcrypt from 'bcrypt';
 import crypto from 'crypto';
-import { signJwt } from '../utils/jwt.js';
+import { signJwt, verifyJwt } from '../utils/jwt.js';
 
 // Helper Functions
 const createFirebaseUser = async (email, password) => {
@@ -277,7 +277,19 @@ export const createProfile = async (req, res) => {
       monthlyExpenses,
       monthlySavings,
       aadharCardNumber,
+      unlockedCoupons,
     } = req.body;
+
+    let userId;
+    if (req.headers.authorization && req.headers.authorization.startsWith('Bearer')) {
+      try {
+        const token = req.headers.authorization.split(' ')[1];
+        const decoded = verifyJwt(token, process.env.JWT_SECRET || 'your_jwt_secret');
+        userId = decoded.userId;
+      } catch (e) {
+        console.error('JWT verify failed in createProfile:', e.message);
+      }
+    }
 
     const normalizedProfile = {
       firstName,
@@ -294,14 +306,49 @@ export const createProfile = async (req, res) => {
       aadharCardNumber: Array.isArray(aadharCardNumber)
         ? aadharCardNumber
         : String(aadharCardNumber || '').split(''),
+      unlockedCoupons: unlockedCoupons || []
     };
 
-    const newProfile = new Profile(normalizedProfile);
-    await newProfile.save();
+    let profile;
+    if (userId) {
+      normalizedProfile.userId = userId;
+      profile = await Profile.findOneAndUpdate({ userId }, normalizedProfile, { new: true, upsert: true });
+    } else {
+      return res.status(401).json({ message: 'Unauthorized: No valid user ID associated with request' });
+    }
 
-    return res.status(201).json(newProfile);
+    return res.status(201).json(profile);
   } catch (error) {
     console.error('Error creating profile:', error);
     return res.status(500).json({ message: 'Error creating profile', error: error.message });
+  }
+};
+
+// Get Profile Controller
+export const getProfile = async (req, res) => {
+  try {
+    let profile;
+    let userId;
+    if (req.headers.authorization && req.headers.authorization.startsWith('Bearer')) {
+      try {
+        const token = req.headers.authorization.split(' ')[1];
+        const decoded = verifyJwt(token, process.env.JWT_SECRET || 'your_jwt_secret');
+        userId = decoded.userId;
+      } catch (e) {
+        console.error('JWT verify failed in getProfile:', e.message);
+      }
+    }
+
+    if (userId) {
+      profile = await Profile.findOne({ userId });
+    }
+
+    if (!profile) {
+      return res.status(404).json({ message: 'Profile not found' });
+    }
+    return res.status(200).json(profile);
+  } catch (error) {
+    console.error('Error fetching profile:', error);
+    return res.status(500).json({ message: 'Error fetching profile', error: error.message });
   }
 };
